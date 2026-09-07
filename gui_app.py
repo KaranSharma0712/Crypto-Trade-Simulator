@@ -24,6 +24,7 @@ from latency_benchmark import (
 )
 
 ORDERBOOK_DEPTH = 10  # Limit to top 10 levels for performance
+TESTING_FIRST = 1
 
 class TradeSimulatorUI:
     def __init__(self, root):
