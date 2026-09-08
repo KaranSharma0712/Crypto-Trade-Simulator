@@ -602,13 +602,15 @@ class TradeSimulatorUI:
                             bid = float(self.orderbook["bids"][0][0])
                             ask = float(self.orderbook["asks"][0][0])
                             spread = ask - bid
+                            testval = ask * bid
                             
                             # Update current data dictionary
                             self.current_data = {
                                 "bid": bid,
                                 "ask": ask,
                                 "spread": spread,
-                                "latency": latency_ms
+                                "latency": latency_ms,
+                                "testval": testval
                             }
                             
                             # Update market models with new data
