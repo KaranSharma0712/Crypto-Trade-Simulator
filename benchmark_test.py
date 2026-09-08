@@ -26,6 +26,8 @@ class MarketDataProcessor:
             data = np.exp(data / data.max())
         
         elapsed = time.perf_counter() - start
+        if(elapsed > 0.1):
+            print(f"Warning: Data processing took {elapsed:.3f}s for size {data_size}")
         return elapsed * 1000  # Return in ms
 
 class UIUpdater:
@@ -107,6 +109,8 @@ def generate_visualizations():
     for i, (component, metrics) in enumerate(stats.items()):
         # Extract the data for this component
         data = global_tracker.metrics[component]
+        if(not data):
+            continue
         
         # Create a histogram
         axs[i].hist(data, bins=30, alpha=0.7, color='blue')
