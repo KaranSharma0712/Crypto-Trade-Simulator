@@ -97,6 +97,9 @@ def run_benchmark(cycles, data_sizes, ui_complexities, threads=1):
 def generate_visualizations():
     """Generate visualizations of the benchmark results."""
     stats = global_tracker.get_all_statistics()
+    if(not stats):
+        print("No data to visualize.")
+        return
     
     # Create a figure with subplots
     fig, axs = plt.subplots(1, len(stats), figsize=(15, 5))
